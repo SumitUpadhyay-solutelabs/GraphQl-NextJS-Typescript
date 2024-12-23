@@ -8,13 +8,15 @@ export default async function ProductPage({
 }) {
   const userId = (await params).id;
 
-  const data = await fetch("http://localhost:3000/api/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `query getUser($getUserById: ID!) {
+  const data = await fetch(
+    "https://next-js-typescript-weld.vercel.app/api/graphql/",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `query getUser($getUserById: ID!) {
    getUserById(id: $getUserById) {
     id
     age
@@ -22,11 +24,12 @@ export default async function ProductPage({
     isMarried
    }
 }`,
-      variables: {
-        getUserById: userId,
-      },
-    }),
-  });
+        variables: {
+          getUserById: userId,
+        },
+      }),
+    }
+  );
   const res = await data.json();
   //console.log(res);
   return (

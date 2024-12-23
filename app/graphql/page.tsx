@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 export default function graphql() {
   const client = new ApolloClient({
-    uri: "http://localhost:3000/api/graphql",
+    uri: "https://next-js-typescript-weld.vercel.app/api/graphql",
     cache: new InMemoryCache(),
   });
   return (
