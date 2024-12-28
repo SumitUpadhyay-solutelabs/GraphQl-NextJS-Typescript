@@ -49,7 +49,7 @@ export const GraphqlWrapper = () => {
       });
       refetch();
     } catch (error) {
-      console.log(error);
+      console.log("GrapohQL Error", error);
     }
   };
   return (
