@@ -7,7 +7,6 @@ export default function graphql() {
     uri: "https://next-js-typescript-weld.vercel.app/api/graphql",
     cache: new InMemoryCache(),
   });
-
   return (
     <>
       <ApolloProvider client={client}>
