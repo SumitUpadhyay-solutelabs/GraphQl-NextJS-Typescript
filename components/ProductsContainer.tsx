@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { productsProps } from "@/constants";
 import { formData } from "@/constants/form";
+import { CartContext } from "@/context/CartContext";
 
 export default function ProductsContainer() {
   const [products, setProducts] = useState<Array<productsProps>>([]);
@@ -44,6 +45,7 @@ export default function ProductsContainer() {
   const handleDelete = (id: number) => {
     setProducts(products.filter((product) => product.id !== id));
   };
+  const { cartData } = useContext<any>(CartContext);
   return (
     <>
       <div>
@@ -72,7 +74,9 @@ export default function ProductsContainer() {
               key={product.id}
               {...product}
               isDeleteButtonVisible={true}
+              isAddToCartButtonVisible={true}
               handleDelete={handleDelete}
+              inCart={cartData.includes(product.id)}
             />
           ))}
         </div>

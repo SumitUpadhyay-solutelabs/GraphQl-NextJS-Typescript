@@ -5,6 +5,8 @@ export interface productsProps {
   image: string;
   isDeleteButtonVisible?: boolean;
   handleDelete?: (id: number) => void;
+  isAddToCartButtonVisible?: boolean;
+  inCart?: boolean;
 }
 export interface userProps {
   id: any;

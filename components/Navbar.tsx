@@ -1,6 +1,10 @@
+"use client";
+import { CartContext } from "@/context/CartContext";
 import Link from "next/link";
+import { useContext } from "react";
 
 export const Navbar = () => {
+  const { cartData } = useContext(CartContext);
   const navData = [
     { title: "Client Side Rendering", href: "/client" },
     { title: "Product Details", href: "/product/5" },
@@ -22,6 +26,11 @@ export const Navbar = () => {
           <li>
             <Link href="/" className="hover:text-gray-400">
               Home
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-gray-400">
+              Cart {cartData.length}
             </Link>
           </li>
         </ul>
